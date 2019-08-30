@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TechTalks</title>
+   
+    <%- include('head') %>
+    <body>
+            <!--Navbar -->
+            <%- include('navbar') %> 
+        <!--/.Navbar -->
+          </body>
+          <br>
+<div class="container">
+<!-- Search form -->
+<form action="/search" method="post">
+<div class="md-form mt-0">
+    <label>
+        </label>
+        <input class="form-control" name="search"  type="number" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success" type="submit" >Submit</button>
+      </div>   
+</form>
+<%if(err){%>
+
+    <div class="alert alert-danger"><%=msg%></div>
+    
+    <%}%>
+<% if(scc){ %>
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Insert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><%=fname%></td>
+            <td><%=lname%></td>
+            <td>
+                <form method="get" action="/delete:<%=id%>"  >
+                <button class="btn btn-info  btn-sm" type="submit" >Insert</button>
+            </form>
+            </td>
+          
+            </tr>
+          
+        </tbody>
+      </table>
+      <%}%>
+
+</div>  
+<br><br>
+<%- include('scripts') %>
+ 
+  <!-- Footer -->
+<%- include('footer') %>
+  </body>
+</html>
