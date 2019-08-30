@@ -117,6 +117,13 @@
 </div>     
 <br><br>
 <%- include('scripts') %>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<% if(swal){%>
+<script>
+  swal("Your id is:<%=id%> !", "Please Save or remeber yourID it is your Entry pass!", "success");
+  </script>
+
+<%}%>
  
   <!-- Footer -->
 <%- include('footer') %>

@@ -66,7 +66,7 @@ connection.query("UPDATE `users` SET `ID` = ID + 100 WHERE `users`.`ID` = "+id+"
 
 
 router.get("/register",function(req,res){
-  res.render("register",{ check:false,type:"",msg:""});
+  res.render("register",{ check:false,type:"",msg:"",swal:false,id:""});
 })
 
 router.post("/register",function(req,res){
@@ -83,30 +83,30 @@ router.post("/register",function(req,res){
 
 
   if(fname=="" || Lname=="" || email=="" || Year=="" || section=="" || clas=="" ){
-    res.render("register",{ check:true,type:"alert-danger",msg:"Please insert All value"})
+    res.render("register",{ check:true,type:"alert-danger",msg:"Please insert All value",swal:false,id:""})
     return;
   }
 
 if(Year!="2017" &&  Year!="2018" && Year!="2019"){
-  res.render("register",{ check:true,type:"alert-danger",msg:"invalid year"});
+  res.render("register",{ check:true,type:"alert-danger",msg:"invalid year",swal:false,id:""});
   return;
 
 }
 
 if(!validator.isEmail(email)){
-  res.render("register",{ check:true,type:"alert-danger",msg:"invalid Email"});
+  res.render("register",{ check:true,type:"alert-danger",msg:"invalid Email",swal:false,id:""});
   return;
 } 
 
 if(section!="1" && section!="2" && section!="3" ){
-  res.render("register",{ check:true,type:"alert-danger",msg:"invalid Section"});
+  res.render("register",{ check:true,type:"alert-danger",msg:"invalid Section",swal:false,id:""});
   return;
 
 }
 
 if(clas!="1" && clas!="2"){
 
-  res.render("register",{ check:true,type:"alert-danger",msg:"invalid Course"});
+  res.render("register",{ check:true,type:"alert-danger",msg:"invalid Course",swal:false,id:""});
   return;
 
 
@@ -123,11 +123,11 @@ connection.query("SELECT * FROM `users`", function (err, results, fields) {
 
    for(let item of users){
     if(item.UserID==ID){
-      res.render("register",{ check:true,type:"alert-danger",msg:"You are already Register"})
+      res.render("register",{ check:true,type:"alert-danger",msg:"You are already Register",swal:false,id:""})
       return;
     }
     if(item.Email==email){
-      res.render("register",{ check:true,type:"alert-danger",msg:"this email Already Register"})
+      res.render("register",{ check:true,type:"alert-danger",msg:"this email Already Register",swal:false,id:""})
       return;
     }
   
@@ -144,7 +144,7 @@ connection.query("SELECT * FROM `users`", function (err, results, fields) {
 if(clas==1){
   
   if(BCA<=BCAC){
-    res.render("register",{ check:true,type:"alert-danger",msg:"Registration are Over"})
+    res.render("register",{ check:true,type:"alert-danger",msg:"Registration are Over",swal:false,id:""})
     return;
   }
     BCAC++;
@@ -153,7 +153,7 @@ if(clas==1){
 
   if(IM<=IMC)
   {
-    res.render("register",{ check:true,type:"alert-danger",msg:"Registration are Over"})
+    res.render("register",{ check:true,type:"alert-danger",msg:"Registration are Over",swal:false,id:""})
     return;
   }
   IMC++;
@@ -165,12 +165,12 @@ if(clas==1){
 all++;
 connection.query("INSERT INTO `users` (`UserID`, `ID`, `Fname`, `Lname`, `Email`  ) VALUES ('"+ID+"', '"+all+"', '"+fname+"', '"+Lname+"', '"+email+"');", function (err, results, fields) {
   if (err) {
-    res.render("register",{ check:true,type:"alert-danger",msg:"Some thing Went Wrong"});
+    res.render("register",{ check:true,type:"alert-danger",msg:"Some thing Went Wrong",swal:false,id:""});
     return console.log(err);
   }
 
   if (results) { 
-    res.render("register",{ check:true,type:"alert-success",msg:"successfully registered"});
+    res.render("register",{ check:true,type:"alert-success",msg:"successfully registered",swal:true,id:all});
     
     return;
 
