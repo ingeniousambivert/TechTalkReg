@@ -44,15 +44,8 @@ let all=0;
 
 
 
-
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
-
-
 router.get("/delete:id",function(req,res){
-  const id=req.params.id.substring(1);;
+  const id=req.params.id.substring(1);
 //UPDATE `users` SET `ID` = ID + 100 WHERE `users`.`ID` = 1 ;  
 connection.query("UPDATE `users` SET `ID` = ID + 100 WHERE `users`.`ID` = "+id+";", function (err, results, fields) {
 
@@ -63,6 +56,103 @@ connection.query("UPDATE `users` SET `ID` = ID + 100 WHERE `users`.`ID` = "+id+"
 });
 
 })
+
+
+
+
+
+
+
+
+
+
+router.get("/sid",function(req,res){
+  res.render("searchbyid",{err:false,scc:false,msg:"",lname:"",fname:"",id:""});
+  });
+  router.post("/sid",function(req,res){
+    let {Year,rollno,section,clas}=req.body;
+    let id=clas+Year+section+rollno;
+    console.log(id)
+    if(Year!="" && rollno!="" && section!="" && clas!="" )
+    {
+    connection.query("SELECT Fname,Lname,ID  FROM `users`  where UserID="+id+";", function (err, results, fields) {
+  
+      if (err) {
+        res.render("searchbyid",{err:true,scc:false,msg:"something went wrong",lname:"",fname:"",id:""});
+      }
+    
+      
+      if(results.length > 0 )
+      {
+      console.log(results[0].Fname);
+      res.render("searchbyid",{err:false,scc:true,msg:"",lname:results[0].Lname,fname:results[0].Fname,id:results[0].ID});
+     
+      }else{
+        console.log("empty");
+        res.render("searchbyid",{err:true,scc:false,msg:"no data found",lname:"",fname:"",id:""});
+      }
+    })
+
+  }
+  
+  })
+
+
+
+
+
+router.get("/search",function(req,res){
+  res.render("search",{err:false,scc:false,msg:"",lname:"",fname:"",id:""});
+  });
+  
+  
+  router.post("/search",function(req,res){
+    
+  const id=req.body.search;
+  if(id)
+  {
+  connection.query("SELECT Fname,Lname  FROM `users`  where ID="+id+";", function (err, results, fields) {
+  
+    if (err) {
+      res.render("search",{err:true,scc:false,msg:"something went wrong",lname:"",fname:"",id:""});
+    }
+  
+    
+    if(results.length > 0 )
+    {
+    console.log(results[0].Fname);
+    res.render("search",{err:false,scc:true,msg:"",lname:results[0].Lname,fname:results[0].Fname,id:id});
+   
+    }else{
+      console.log("empty");
+      res.render("search",{err:true,scc:false,msg:"no data found",lname:"",fname:"",id:""});
+    }
+  })
+  
+  }
+  
+   // res.render("search",{err:false,scc:false,msg:"",lname:"",fname:"",id:""});
+    });
+
+
+    
+  
+
+
+
+
+  
+  
+
+
+
+
+router.get('/', function(req, res, next) {
+  res.render('index');
+});
+
+
+
 
 
 router.get("/register",function(req,res){
@@ -181,36 +271,7 @@ connection.query("INSERT INTO `users` (`UserID`, `ID`, `Fname`, `Lname`, `Email`
 
  
 });
-router.get("/search",function(req,res){
-res.render("search",{err:false,scc:false,msg:"something went wrong",lname:"",fname:"",id:""});
-});
-router.post("/search",function(req,res){
-  
-const id=req.body.search;
-if(id)
-{
-connection.query("SELECT Fname,Lname  FROM `users`  where ID="+id+";", function (err, results, fields) {
 
-  if (err) {
-    res.render("search",{err:true,scc:false,msg:"something went wrong",lname:"",fname:"",id:""});
-  }
-
-  
-  if(results.length > 0 )
-  {
-  console.log(results[0].Fname);
-  res.render("search",{err:false,scc:true,msg:"",lname:results[0].Lname,fname:results[0].Fname,id:id});
- 
-  }else{
-    console.log("empty");
-    res.render("search",{err:true,scc:false,msg:"no data found",lname:"",fname:"",id:""});
-  }
-})
-
-}
-
- // res.render("search",{err:false,scc:false,msg:"",lname:"",fname:"",id:""});
-  });
 
 module.exports = router;
   

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TechTalks</title>
+   
+    <%- include('head') %>
+    <body>
+            <!--Navbar -->
+            <%- include('navbar') %> 
+        <!--/.Navbar -->
+          </body>
+          <br>
+<div class="container">
+<!-- Search form -->
+<form action="/sid" method="post">
+    <div class="row">  
+        <div class="col">
+            <select class="mdb-select md-form form-control" name="Year" style="margin:0;" >
+                <option value="-1" disabled selected>Year</option>
+                <option value="2019">FY</option>
+                <option value="2018">SY</option>
+                <option value="2017">TY</option>
+              </select>
+               
+        </div>
+      </div>
+      
+<br>    
+      <div class="row" >
+          <div class="col-md-4">
+              <!-- First name -->
+              <input type="text" id="defaultRegisterFormFirstName" name="rollno" class="form-control" placeholder="RollNo." required>
+          </div>
+     <br>     
+          <div class="col-md-4">
+              <select class="mdb-select md-form form-control" name="section" style="margin:0;" >
+                  <option value="-1" disabled selected>Section</option>
+                  <option value="1">A</option>
+                  <option value="2">B</option>
+                  <option value="3">C</option>
+                </select>
+                 
+          </div>
+          <br>
+          <div class="col-md-4 ">
+              <select class="mdb-select md-form form-control" name="clas" style="margin-top:0%;" >
+                  <option value="-1" disabled selected>Course</option>
+                  <option value="1">BCA</option>
+                  <option value="2">IMSCIT</option>
+                  </select>
+        </div>
+    
+    <br>
+    </div>
+    <div class="row">
+        <button class="btn btn-success " type="submit" >Submit</button>
+
+    </div>
+             
+</form>
+<%if(err){%>
+
+    <div class="alert alert-danger"><%=msg%></div>
+    
+    <%}%>
+<% if(scc){ %>
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Insert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><%=fname%></td>
+            <td><%=lname%></td>
+            <td>
+                <%  if(id > 100 ) { %>
+                    <h3><span class="badge red">already In</span></h3> 
+                    <%} else{  %>
+                 
+                    <h3><span class="badge green">Go IN(<%=id%>)</span></h3> 
+
+                       <%}%>
+                 
+            
+            </td>
+          
+            </tr>
+          
+        </tbody>
+      </table>
+      <%}%>
+
+</div>  
+<br><br>
+<%- include('scripts') %>
+ 
+  <!-- Footer -->
+<%- include('footer') %>
+  </body>
+</html>
