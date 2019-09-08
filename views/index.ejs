@@ -2,83 +2,196 @@
 <html>
   <head>
     <title>TechTalk</title>
-   
+
     <%- include('head') %>
   </head>
   <body>
     <!--Navbar -->
-    <%- include('navbar') %> 
-<!--/.Navbar -->
+    <%- include('navbar') %>
+
+    <!--Carousel Wrapper-->
+    <div
+      id="carousel-example-2"
+      class="carousel slide carousel-fade"
+      data-ride="carousel"
+    >
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li
+          data-target="#carousel-example-2"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="view">
+            <img
+              class="d-block w-100"
+              src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+              alt="First slide"
+            />
+            <div class="mask rgba-black-light"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img
+              class="d-block w-100"
+              src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+              alt="Second slide"
+            />
+            <div class="mask rgba-black-strong"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img
+              class="d-block w-100"
+              src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+              alt="Third slide"
+            />
+            <div class="mask rgba-black-slight"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+          </div>
+        </div>
+      </div>
+      <!--/.Slides-->
+      <!--Controls-->
+      <a
+        class="carousel-control-prev"
+        href="#carousel-example-2"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carousel-example-2"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm">
+          <!-- Card -->
+          <div class="card">
+            <!-- Card image -->
+            <div class="view overlay">
+              <img
+                class="card-img-top"
+                src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                alt="Card image cap"
+              />
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!-- Card content -->
+            <div class="card-body">
+              <!-- Title -->
+              <h4 class="card-title">Recent Event</h4>
+              <!-- Text -->
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.Some quick example text to build
+                on the card title and make up the bulk of the card's content.
+              </p>
+              <small class="dark-grey-text">Date: 12/09/2019</small>
+            </div>
+          </div>
+          <!-- Card -->
+        </div>
+        <div class="col-sm">
+          <div class="list-group">
+            <a
+              href="#!"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-2 h5">List group item heading</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-2">
+                Donec id elit non mi porta gravida at eget metus. Maecenas sed
+                diam eget risus varius blandit.
+              </p>
+              <small>Donec id elit non mi porta.</small>
+            </a>
+            <a
+              href="#!"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-2 h5">List group item heading</h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-2">
+                Donec id elit non mi porta gravida at eget metus. Maecenas sed
+                diam eget risus varius blandit.
+              </p>
+              <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+            <a
+              href="#!"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-2 h5">List group item heading</h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-2">
+                Donec id elit non mi porta gravida at eget metus. Maecenas sed
+                diam eget risus varius blandit.
+              </p>
+              <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+            <a
+              href="#!"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-2 h5">List group item heading</h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-2">
+                Donec id elit non mi porta gravida at eget metus. Maecenas sed
+                diam eget risus varius blandit.
+              </p>
+              <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Section: Features v.1 -->
+
+    <%- include('scripts') %> <%- include('footer') %>
   </body>
-<br>
-<div class="container ">
-  <div class="row text-center" >
-     <div class="col">
-       <img src="images/flutter.svg" alt="fluter">
-    </div>
-
-</div>
-<!-- Section: Features v.1 -->
-<section class="text-center my-5">
-
-    <!-- Section heading -->
-    <h3 class="h3-responsive font-weight-bold my-5">Why is it so great ?</h3>
-    <!-- Section description -->
-    <p class="lead grey-text w-responsive mx-auto mb-5">
-        Flutter is a free and open source Google mobile UI framework that provides a fast and expressive way for developers to build native apps on both IOS and Android.
-    </p>
-  
-    <!-- Grid row -->
-    <div class="row">
-  
-      <!-- Grid column -->
-      <div class="col-md-4">
-  
-          <i class="fas fa-tachometer-alt  fa-3x"></i>
-        <h5 class="font-weight-bold my-4 ">Fast Development</h5>
-        <p class="grey-text mb-md-0 mb-5">
-            Quickly ship features with a focus on native end-user experiences. Layered architecture allows for full customization, which results in incredibly fast rendering and expressive and flexible designs.  
-        </p>
-  
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col-md-4">
-  
-          <i class="fas fa-quidditch  fa-3x"></i>
-        <h5 class="font-weight-bold my-4">Expressive and Flexible UI</h5>
-        <p class="grey-text mb-md-0 mb-5">
-
-            Flutter’s widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android.
-        </p>
-  
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col-md-4">
-  
-          <i class="fas fa-fire  fa-3x"></i>
-        <h5 class="font-weight-bold my-4">Native Performance</h5>
-        <p class="grey-text mb-0">Flutter’s widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android.
-        </p>
-  
-      </div>
-      <!-- Grid column -->
-  
-    </div>
-    <!-- Grid row -->
-  
-  </section>
-  <br><br>
-  <!-- Section: Features v.1 -->
-
-
-  <%- include('scripts') %>
-
-
-
-
-<%- include('footer') %>
 </html>

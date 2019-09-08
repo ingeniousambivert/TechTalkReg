@@ -60,8 +60,8 @@ let IM = 22;
 let all = 0;
 
 /* GET home page. */
-router.get("/blog", function(req, res) {
-  res.render("blog", { title: "hello" });
+router.get("/", function(req, res, next) {
+  res.render("index");
 });
 
 router.get("/delete:id", function(req, res) {
@@ -191,10 +191,6 @@ router.post("/search", function(req, res) {
       }
     );
   }
-});
-
-router.get("/", function(req, res, next) {
-  res.render("index");
 });
 
 router.get("/register", function(req, res) {
