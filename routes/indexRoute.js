@@ -44,7 +44,7 @@ getBlogs = () => {
     .then(function(res) {
       // handle success
       let data = res.data;
-      console.log(data.kind);
+      console.log(data);
     })
     .catch(function(err) {
       // handle error
