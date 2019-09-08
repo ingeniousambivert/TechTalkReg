@@ -2,6 +2,7 @@ const express = require("express");
 const validator = require("validator");
 const mysql = require("mysql");
 const router = express.Router();
+const axios = require("axios");
 
 const connection = mysql.createConnection({
   host: "remotemysql.com",
@@ -35,6 +36,23 @@ function handleDisconnect() {
 
 handleDisconnect();
 
+getBlogs = () => {
+  axios
+    .get(
+      "https://www.googleapis.com/blogger/v3/blogs/7700064348074737886/posts?key=AIzaSyBlfj5LD1--6G3Eat9s5Rffg7I6C6h9Bwo"
+    )
+    .then(function(res) {
+      // handle success
+      let data = res.data;
+      console.log(data.kind);
+    })
+    .catch(function(err) {
+      // handle error
+      console.log(err);
+    });
+};
+getBlogs();
+
 let BCAC = 0;
 let IMC = 0;
 let BCA = 76;
@@ -42,6 +60,9 @@ let IM = 22;
 let all = 0;
 
 /* GET home page. */
+router.get("/blog", function(req, res) {
+  res.render("blog", { title: "hello" });
+});
 
 router.get("/delete:id", function(req, res) {
   const id = req.params.id.substring(1);
@@ -61,10 +82,6 @@ router.get("/delete:id", function(req, res) {
       });
     }
   );
-});
-
-router.get("/blog", function(req, res) {
-  res.render("blog");
 });
 
 router.get("/sid", function(req, res) {
@@ -174,8 +191,6 @@ router.post("/search", function(req, res) {
       }
     );
   }
-
-  // res.render("search",{err:false,scc:false,msg:"",lname:"",fname:"",id:""});
 });
 
 router.get("/", function(req, res, next) {
