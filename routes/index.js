@@ -63,6 +63,10 @@ router.get("/delete:id", function(req, res) {
   );
 });
 
+router.get("/blog", function(req, res) {
+  res.render("blog");
+});
+
 router.get("/sid", function(req, res) {
   res.render("searchbyid", {
     err: false,

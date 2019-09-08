@@ -2,130 +2,169 @@
 <html>
   <head>
     <title>TechTalks</title>
-   
+
     <%- include('head') %>
- <style>
- 
- .row{
-   margin-top:2%; 
- }
- .col-md-4{
-   margin-bottom:2%; 
- }
- @media only screen and (max-width: 992px) {
- #img {
-    display: none;
-  }
-}
- </style>
+    <style>
+      .row {
+        margin-top: 2%;
+      }
+      .col-md-4 {
+        margin-bottom: 2%;
+      }
+      @media only screen and (max-width: 992px) {
+        #img {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <!--Navbar -->
-    <%- include('navbar') %> 
-<!--/.Navbar -->
-  
-  <br><br>
-  <div class="container text-center">
-     
-    <div class="row" style="position: relativel;" >
-      <div class="col" id="img" style="text-align: center;">
-      
-     <img src="images/img.svg" alt="side image" style="width:70%; ">
-      </div>
-      <div class="col">
-  <!-- Default form register -->
-<form class="text-center border border-light p-5" action="/register" method="post">
+    <%- include('navbar') %>
+    <!--/.Navbar -->
 
-  <p class="h4 mb-4">Register</p>
-  <p class="h6 mb-4" ><span style="color: red">*Note:</span>Every one must have to bring your ID card.</p>
-<%  if(check){ %>
-  <div class="alert text-center <%=type%>" ><%=msg%></div>
-  <%}%>
-  <div class="row">
-      <div class="col">
-          <!-- First name -->
-          <input type="text" id="defaultRegisterFormFirstName" name="fname" class="form-control" placeholder="First name" required>
-      </div>
-      <div class="col">
-          <!-- Last name -->
-          <input type="text" id="defaultRegisterFormLastName" name="Lname"  class="form-control" placeholder="Last name" required>
-      </div>
-  </div>
+    <br /><br />
+    <div class="container text-center">
+      <div class="row" style="position: relativel;">
+        <div class="col" id="img" style="text-align: center;">
+          <img src="images/img.svg" alt="side image" style="width:70%; " />
+        </div>
+        <div class="col">
+          <!-- Default form register -->
+          <form
+            class="text-center border border-light p-5"
+            action="/register"
+            method="post"
+          >
+            <p class="h4 mb-4">Register</p>
+            <p class="h6 mb-4">
+              <span style="color: red">*Note: </span>Every one must bring their
+              ID card.
+            </p>
+            <% if(check){ %>
+            <div class="alert text-center <%=type%>"><%=msg%></div>
+            <%}%>
+            <div class="row">
+              <div class="col">
+                <!-- First name -->
+                <input
+                  type="text"
+                  id="defaultRegisterFormFirstName"
+                  name="fname"
+                  class="form-control"
+                  placeholder="First name"
+                  required
+                />
+              </div>
+              <div class="col">
+                <!-- Last name -->
+                <input
+                  type="text"
+                  id="defaultRegisterFormLastName"
+                  name="Lname"
+                  class="form-control"
+                  placeholder="Last name"
+                  required
+                />
+              </div>
+            </div>
 
-  <!-- E-mail -->
-<div class="row">  
-  <div class="col">
-  <input type="email" name="email"  id="defaultRegisterFormEmail" class="form-control " placeholder="E-mail" required>
-</div>
-</div>
+            <!-- E-mail -->
+            <div class="row">
+              <div class="col">
+                <input
+                  type="email"
+                  name="email"
+                  id="defaultRegisterFormEmail"
+                  class="form-control "
+                  placeholder="E-mail"
+                  required
+                />
+              </div>
+            </div>
 
-<div class="row">  
-    <div class="col">
-        <select class="mdb-select md-form form-control" name="Year" style="margin:0;" >
-            <option value="-1" disabled selected>Year</option>
-            <option value="2019">FY</option>
-            <option value="2018">SY</option>
-            <option value="2017">TY</option>
-          </select>
-           
+            <div class="row">
+              <div class="col">
+                <select
+                  class="mdb-select md-form form-control"
+                  name="Year"
+                  style="margin:0;"
+                >
+                  <option value="-1" disabled selected>Year</option>
+                  <option value="2019">FY</option>
+                  <option value="2018">SY</option>
+                  <option value="2017">TY</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <!-- First name -->
+                <input
+                  type="text"
+                  id="defaultRegisterFormFirstName"
+                  name="rollno"
+                  class="form-control"
+                  placeholder="RollNo."
+                  required
+                />
+              </div>
+
+              <div class="col-md-4">
+                <select
+                  class="mdb-select md-form form-control"
+                  name="section"
+                  style="margin:0;"
+                >
+                  <option value="-1" disabled selected>Section</option>
+                  <option value="1">A</option>
+                  <option value="2">B</option>
+                  <option value="3">C</option>
+                </select>
+              </div>
+              <div class="col-md-4 ">
+                <select
+                  class="mdb-select md-form form-control"
+                  name="clas"
+                  style="margin-top:0%;"
+                >
+                  <option value="-1" disabled selected>Course</option>
+                  <option value="1">BCA</option>
+                  <option value="2">IMSCIT</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Sign up button -->
+            <button class="btn btn-info my-4 " type="submit">
+              Register
+            </button>
+
+            <!-- Social register -->
+
+            <!-- Terms of service -->
+          </form>
+          <br /><br />
+          <!-- Default form register -->
+        </div>
+      </div>
     </div>
-  </div>
-  
+    <br /><br />
+    <%- include('scripts') %>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <% if(swal){%>
+    <script>
+      swal(
+        "Your id is:<%=id%> !",
+        "Please Save or remeber yourID it is your Entry pass!",
+        "success"
+      );
+    </script>
 
-  <div class="row" >
-      <div class="col-md-4">
-          <!-- First name -->
-          <input type="text" id="defaultRegisterFormFirstName" name="rollno" class="form-control" placeholder="RollNo." required>
-      </div>
-      
-      <div class="col-md-4">
-          <select class="mdb-select md-form form-control" name="section" style="margin:0;" >
-              <option value="-1" disabled selected>Section</option>
-              <option value="1">A</option>
-              <option value="2">B</option>
-              <option value="3">C</option>
-            </select>
-             
-      </div>
-      <div class="col-md-4 ">
-          <select class="mdb-select md-form form-control" name="clas" style="margin-top:0%;" >
-              <option value="-1" disabled selected>Course</option>
-              <option value="1">BCA</option>
-              <option value="2">IMSCIT</option>
+    <%}%>
 
-            </select>
-             
-      </div>
-      </div>
-  
-  
-
-  <!-- Sign up button -->
-  <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
-
-  <!-- Social register -->
- 
-  
-
-  <!-- Terms of service -->
-  
-</form>
-<br><br>
-<!-- Default form register -->
-</div>
-</div>
-</div>     
-<br><br>
-<%- include('scripts') %>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<% if(swal){%>
-<script>
-  swal("Your id is:<%=id%> !", "Please Save or remeber yourID it is your Entry pass!", "success");
-  </script>
-
-<%}%>
- 
-  <!-- Footer -->
-<%- include('footer') %>
+    <!-- Footer -->
+    <%- include('footer') %>
   </body>
 </html>
